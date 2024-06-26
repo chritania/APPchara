@@ -11,15 +11,15 @@ public class Product {
     @GeneratedValue Long id;
     private String productName;
     private String description;
-    private double prices;
+    private double price;
 
 
     Product(){}
     
-    public Product(String productName, String description, double prices) {
+    public Product(String productName, String description, double price) {
         this.productName = productName;
         this.description = description;
-        this.prices = prices;
+        this.price = price;
     }
 
     //setters//
@@ -33,8 +33,8 @@ public class Product {
     }
 
 
-    public void setPrices(double prices) {
-        this.prices = prices;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
 
@@ -54,8 +54,8 @@ public class Product {
     }
 
 
-    public double getPrices() {
-        return prices;
+    public double getPrice() {
+        return price;
     }
     
 
