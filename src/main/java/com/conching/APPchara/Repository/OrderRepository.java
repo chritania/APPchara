@@ -6,4 +6,5 @@ import com.conching.APPchara.Model.Order;
 
 public interface OrderRepository extends JpaRepository<Order, Long>{
 
+
 }

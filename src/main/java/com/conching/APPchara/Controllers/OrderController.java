@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.conching.APPchara.Model.Order;
-import com.conching.APPchara.Model.Users;
 import com.conching.APPchara.NotFoundException.OrderNotFoundException;
 import com.conching.APPchara.Repository.OrderRepository;
 import org.springframework.web.bind.annotation.DeleteMapping;
