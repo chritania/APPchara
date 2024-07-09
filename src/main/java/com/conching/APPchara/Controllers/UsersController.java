@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 
 
 @RestController
+@RequestMapping("/api/v1/users")
 public class UsersController {
 
     UsersRepository repo;
@@ -26,21 +28,21 @@ public class UsersController {
 
     //httpp://127.0.0.1/users
     //Get all users
-    @GetMapping("/users")
+    @GetMapping("/all")
     public List<Users>getusers(){
         return repo.findAll();
     }
     
     //Get on user
     //http://127.0.0.1:8080/users/2
-    @GetMapping("/users/{id}")
+    @GetMapping("/{id}")
     public Users geUsersById(@PathVariable Long id){
         return repo.findById(id)
         .orElseThrow(()-> new UsersNotFoundException(id));
     }
 
     //http:127.0.0.1:8080/users/new
-    @PostMapping("/users/new")
+    @PostMapping("/new")
     public String addUsers(@RequestBody Users newUsers){
         repo.save(newUsers);
         return "A new users is added. Yey!";
@@ -48,7 +50,7 @@ public class UsersController {
 
     //Update endpoint
     //http://127.0,0.1:8080/users/edit/1
-    @PutMapping("/users/edit/{id}")
+    @PutMapping("/edit/{id}")
     public Users updateUsers(@PathVariable Long id,
     @RequestBody Users newUsers){
         return repo.findById(id)
@@ -64,7 +66,7 @@ public class UsersController {
 
     //Delete endpoint
     //http:///127.0.0.1:8080/users/delete/1
-    @DeleteMapping("/users/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteUsers(@PathVariable Long id){
         repo.deleteById(id);
         return "A users is deleted!";
